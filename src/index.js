@@ -11,8 +11,7 @@ export default class App extends Component {
 
     // initial data loading
     componentDidMount() {
-        console.log('my component was rendered to the screen')
-        
+        // console.log('my component was rendered to the screen')
         window.navigator.geolocation.getCurrentPosition(
             // callbacks
             position => this.setState({ lat: position.coords.latitude }),
@@ -23,7 +22,7 @@ export default class App extends Component {
 
     // data loading when state/props change
     componentDidUpdate() {
-        console.log('component was updated and rerendered')
+        // console.log('component was updated and rerendered')
     }
 
 
@@ -40,7 +39,8 @@ export default class App extends Component {
         } 
         
         if (!this.state.errorMessage && this.state.lat) {
-            return <div>Lattitude: {this.state.lat}</div>
+            // pass props
+            return <SeasonDisplay lat={this.state.lat} />
         }
 
         return <div>Loading...</div>
